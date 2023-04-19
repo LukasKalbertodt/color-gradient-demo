@@ -90,7 +90,16 @@ const redraw = () => {
 
                 let a0 = 0;
                 let a1 = 0;
-                while (lumDiff > linearize(a0 / numValues) * LUMINANCE["red"] + linearize(a1 / numValues) * LUMINANCE["blue"]) {
+                const improved = () => {
+                    const l0 = linearize(a0 / numValues);
+                    const l1 = linearize(a1 / numValues);
+                    switch (color) {
+                        case "red": return l0 * LUMINANCE.green + l1 * LUMINANCE.blue;
+                        case "green": return l0 * LUMINANCE.red + l1 * LUMINANCE.blue;
+                        case "blue": return l0 * LUMINANCE.red + l1 * LUMINANCE.green;
+                    }
+                };
+                while (lumDiff > improved()) {
                     if (a0 == a1) {
                         a0 += 1;
                     } else {
