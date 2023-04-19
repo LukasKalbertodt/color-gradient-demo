@@ -1,0 +1,100 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/script.js"></script>
+    <style type="text/css">
+        body {
+            background: black;
+            color: #eee;
+            font-family: sans-serif;
+            font-size: 18px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            gap: 8px;
+            overflow: hidden;
+        }
+        header > div {
+            padding: 8px;
+            display: flex;
+            gap: 8px;
+        }
+        label {
+            display: inline-flex;
+            padding: 6px 12px;
+            border-radius: 4px;
+            align-items: center;
+            background-color: #222;
+            cursor: pointer;
+        }
+        input {
+            margin: 0px;
+            margin-right: 8px;
+        }
+        canvas {
+            flex: 1 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <label>
+                <input type="radio" name="mode" value="native" checked />
+                Native
+            </label>
+            <label>
+                <input type="radio" name="mode" value="manual" />
+                Manual (nearest color)
+            </label>
+            <!-- <label>
+                <input type="radio" name="mode" value="dither" />
+                Dithering
+            </label> -->
+        </div>
+        <div>
+            <label>
+                <input type="radio" name="color" value="red" />
+                Red
+            </label>
+            <label>
+                <input type="radio" name="color" value="green" />
+                Green
+            </label>
+            <label>
+                <input type="radio" name="color" value="blue" checked />
+                Blue
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="radio" name="bits" value="8" checked />
+                8
+            </label>
+            <label>
+                <input type="radio" name="bits" value="7" />
+                7
+            </label>
+            <label>
+                <input type="radio" name="bits" value="6" />
+                6
+            </label>
+            <label>
+                <input type="radio" name="bits" value="5" />
+                5
+            </label>
+            <label>
+                <input type="radio" name="bits" value="4" />
+                4
+            </label>
+            <label>
+                <input type="radio" name="bits" value="3" checked />
+                3
+            </label>
+            <div style="align-self: center">(has no effect on "native" mode!)</div>
+        </div>
+    </header>
+    <canvas id="canvas"></canvas>
+</body>
+</html>
